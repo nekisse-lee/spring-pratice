@@ -1,11 +1,7 @@
 package com.myspring.pro27.member.controller;
 
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
+import com.myspring.pro27.member.service.MemberService;
+import com.myspring.pro27.member.vo.MemberVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,15 +14,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.myspring.pro27.member.service.MemberService;
-import com.myspring.pro27.member.vo.MemberVO;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.util.List;
 
 
 
 @Controller("memberController")
 @EnableAspectJAutoProxy
 public class MemberControllerImpl   implements MemberController {
-//	private static final Logger logger = LoggerFactory.getLogger(MemberControllerImpl.class);
+	private static final Logger logger = LoggerFactory.getLogger(MemberControllerImpl.class);
 	@Autowired
 	private MemberService memberService;
 	@Autowired
@@ -38,8 +36,10 @@ public class MemberControllerImpl   implements MemberController {
 		String viewName = getViewName(request);
 //		String viewName = (String)request.getAttribute("viewName");
 		//System.out.println("viewName: " +viewName);
-//		logger.info("viewName: "+ viewName);
-//		logger.debug("viewName: "+ viewName);
+
+		logger.info("viewName: "+ viewName);
+		logger.debug("viewName: "+ viewName);
+
 		List membersList = memberService.listMembers();
 		ModelAndView mav = new ModelAndView(viewName);
 		mav.addObject("membersList", membersList);
@@ -59,7 +59,7 @@ public class MemberControllerImpl   implements MemberController {
 	
 	@Override
 	@RequestMapping(value="/member/removeMember.do" ,method = RequestMethod.GET)
-	public ModelAndView removeMember(@RequestParam("id") String id, 
+	public ModelAndView removeMember(@RequestParam("id") String id,
 			           HttpServletRequest request, HttpServletResponse response) throws Exception{
 		request.setCharacterEncoding("utf-8");
 		memberService.removeMember(id);
