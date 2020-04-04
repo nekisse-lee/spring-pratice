@@ -20,12 +20,12 @@ public class LoggingAdvice {
 	// target 메서드의 파라미터등 정보를 출력합니다.
 	/*@Before("execution(* com.myspring.pro27.member.service.*.*(..)) or "
 			+ "execution(* com.myspring.pro27.member.dao.*.*(..))")*/
-	@Before("execution(* com.myspring.pro27.*.service.*.*(..)) or "
-			+ "execution(* com.myspring.pro27.*.dao.*.*(..))")
+	/*@Before("execution(* com.myspring.pro27.*.service.*.*(..)) or "
+			+ "execution(* com.myspring.pro27.*.dao.*.*(..))")*/
 	public void startLog(JoinPoint jp) {
 
-		logger.info("-------------------------------------");
-		logger.info("-------------------------------------");
+		logger.info("Before-------------------------------");
+		logger.info("Before-------------------------------");
 
 		// 전달되는 모든 파라미터들을 Object의 배열로 가져옵니다.
 		logger.info("1:" + Arrays.toString(jp.getArgs()));
@@ -46,11 +46,11 @@ public class LoggingAdvice {
 
 	/*@After("execution(* com.myspring.pro27.member.service.*.*(..)) or "
 			+ "execution(* com.myspring.pro27.member.dao.*.*(..))")*/
-	@After("execution(* com.myspring.pro27.*.service.*.*(..)) or "
-			+ "execution(* com.myspring.pro27.*.dao.*.*(..))")
+	/*@After("execution(* com.myspring.pro27.*.service.*.*(..)) or "
+			+ "execution(* com.myspring.pro27.*.dao.*.*(..))")*/
 	public void after(JoinPoint jp) {
-		logger.info("-------------------------------------");
-		logger.info("-------------------------------------");
+		logger.info("After--------------------------------");
+		logger.info("After--------------------------------");
 
 		// 전달되는 모든 파라미터들을 Object의 배열로 가져옵니다.
 		logger.info("1:" + Arrays.toString(jp.getArgs()));
@@ -71,8 +71,8 @@ public class LoggingAdvice {
 
 
 	// target 메소드의 동작 시간을 측정합니다.
-	/*@Around("execution(* com.myspring.pro27.member.service.*.*(..)) or "
-			+ "execution(* com.myspring.pro27.member.dao.*.*(..))")*/
+//	@Around("execution(* com.myspring.pro27.member.service.*.*(..)) or "
+//			+ "execution(* com.myspring.pro27.member.dao.*.*(..))")
 	@Around("execution(* com.myspring.pro27.*.service.*.*(..)) or "
 			+ "execution(* com.myspring.pro27.*.dao.*.*(..))")
 	public Object timeLog(ProceedingJoinPoint pjp) throws Throwable {
@@ -85,7 +85,7 @@ public class LoggingAdvice {
 		long endTime = System.currentTimeMillis();
 		// target 메소드의 동작 시간을 출력한다.
 		logger.info(pjp.getSignature().getName() + " : " + (endTime - startTime));
-		logger.info("==============================");
+		logger.info("Around========================");
 
 		// Around를 사용할 경우 반드시 Object를 리턴해야 합니다.
 		return result;
