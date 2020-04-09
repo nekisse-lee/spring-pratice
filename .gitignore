@@ -116,5 +116,5 @@ modules.xml
 네트워크 휴지통 폴더
 임시 아이템
 .apdisk
-/pro28/spring/**.**
+/pro28/spring/**
 # https://www.gitignore.io/api/macos,intellij+all의 끝
