@@ -165,3 +165,5 @@ modules.xml
 # https://www.gitignore.io/api/macos,intellij+all,intellij+iml의 끝
 /pro28/spring/**
 /pro**/lib/**
+.idea/**
+**.iml
