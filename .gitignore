@@ -117,4 +117,5 @@ modules.xml
 임시 아이템
 .apdisk
 /pro28/spring/**
+/pro**/lib/**
 # https://www.gitignore.io/api/macos,intellij+all의 끝
