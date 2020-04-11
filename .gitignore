@@ -1,7 +1,6 @@
-# Created by .ignore support plugin (hsz.mobi)
 
-# https://www.gitignore.io/api/macos,intellij+all에 의해 생성
-# https://www.gitignore.io/?templates=macos,intellij+all에서 편집
+# https://www.gitignore.io/api/macos,intellij+all,intellij+iml 작성
+# https://www.gitignore.io/?templates=macos,intellij+all,intellij+iml에서 편집
 
 ### Intellij + all ###
 # JetBrains IDE : IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio 및 WebStorm
@@ -89,6 +88,52 @@ modules.xml
 # Sonarlint 플러그인
 .idea / sonarlint
 
+### Intellij + iml ###
+# JetBrains IDE : IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio 및 WebStorm
+# 참조 : https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+
+# 사용자 별 물건
+
+# 생성 된 파일
+
+# 민감하거나 높은 파일
+
+# Gradle
+
+자동 가져 오기 기능이있는 Gradle 및 Maven
+# 자동 가져 오기와 함께 Gradle 또는 Maven을 사용하는 경우 모듈 파일을 제외해야합니다.
+# 재생성되므로 이탈이 발생할 수 있습니다. 사용중인 경우 주석 해제
+# 자동 가져 오기.
+# .idea / modules.xml
+# .idea / *. iml
+#. 아이디어 / 모듈
+# * .iml
+# * .ipr
+
+# CMake
+
+# 몽고 탐색기 플러그인
+
+# 파일 기반 프로젝트 형식
+
+# IntelliJ
+
+# mpeltonen / sbt-idea 플러그인
+
+# JIRA 플러그인
+
+# 필기체 클로저 플러그인
+
+# Crashlytics 플러그인 (Android Studio 및 IntelliJ 용)
+
+# 에디터 기반 레스트 클라이언트
+
+# Android studio 3.1+ 직렬화 된 캐시 파일
+
+### Intellij + iml 패치 ###
+# 이유 : https://github.com/joeblau/gitignore.io/issues/186#issuecomment-249601023
+
+
 ### 맥 OS ###
 # 일반
 .DS_Store
@@ -116,6 +161,7 @@ modules.xml
 네트워크 휴지통 폴더
 임시 아이템
 .apdisk
+
+# https://www.gitignore.io/api/macos,intellij+all,intellij+iml의 끝
 /pro28/spring/**
 /pro**/lib/**
-# https://www.gitignore.io/api/macos,intellij+all의 끝
