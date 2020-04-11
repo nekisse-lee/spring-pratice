@@ -169,3 +169,6 @@ modules.xml
 **.iml
 /**/target/**
 /pro**/target/**
+/.idea/**
+/lib/**
+/out/**
