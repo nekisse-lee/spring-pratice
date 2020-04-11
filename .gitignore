@@ -172,3 +172,4 @@ modules.xml
 /.idea/**
 /lib/*
 /out/*
+out/**
