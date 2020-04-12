@@ -173,6 +173,7 @@ modules.xml
 /lib/*
 /out/*
 out/
+/pro28/web/WEB-INF/spring/mail-context.xml
 
 target
 
