@@ -27,9 +27,6 @@ public class MemberControllerImpl   implements MemberController {
 	private static final Logger logger = LoggerFactory.getLogger(MemberControllerImpl.class);
 	@Autowired
 	private MemberService memberService;
-	@Autowired
-	MemberVO memberVO ;
-	
 	@Override
 	@RequestMapping(value="/member/listMembers.do" ,method = RequestMethod.GET)
 	public ModelAndView listMembers(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -45,6 +42,9 @@ public class MemberControllerImpl   implements MemberController {
 		mav.addObject("membersList", membersList);
 		return mav;
 	}
+
+	@Autowired
+	MemberVO memberVO ;
 
 	@Override
 	@RequestMapping(value="/member/addMember.do" ,method = RequestMethod.POST)
