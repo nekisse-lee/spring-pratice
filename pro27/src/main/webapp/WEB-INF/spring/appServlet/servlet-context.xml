@@ -47,7 +47,6 @@
         <beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView"/>
     </beans:bean>
     <!-- 인터셉터 실습 설정 -->
-    <!--
 
        <mvc:interceptors>
             <mvc:interceptor>
@@ -55,5 +54,4 @@
            <beans:bean class="com.myspring.pro27.member.interceptor.ViewNameInterceptor" />
         </mvc:interceptor>
     </mvc:interceptors>
-     -->
 </beans:beans>
