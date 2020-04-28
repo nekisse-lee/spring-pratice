@@ -203,4 +203,4 @@ build
 
 *.bak
 
-/pro30/src/main/webapp/WEB-INF/config/jdbc/jdbc.properties
+/pro**/src/main/webapp/WEB-INF/config/jdbc/jdbc.properties
