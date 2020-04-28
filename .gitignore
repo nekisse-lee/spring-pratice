@@ -202,3 +202,5 @@ build
 *.class
 
 *.bak
+
+**/WEB-INF/config/jdbc/*.properties
