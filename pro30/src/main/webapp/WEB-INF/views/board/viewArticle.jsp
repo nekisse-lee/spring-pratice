@@ -77,7 +77,7 @@
     </script>
 </head>
 <body>
-<form name="frmArticle" method="post" action="${contextPath}" enctype="multipart/form-data">
+<form name="frmArticle" method="post" action="${contextPath}" enctype="multipart/form-data" accept-charset="UTF-8">
     <table border=0 align="center">
         <tr>
             <td width=150 align="center" bgcolor=#FF9933>
@@ -109,7 +109,7 @@
                 내용
             </td>
             <td>
-                <textarea rows="20" cols="60" name="content" id="i_content" disabled/>${article.content }</textarea>
+                <textarea rows="20" cols="60" name="content" id="i_content" disabled>${article.content }</textarea>
             </td>
         </tr>
 
@@ -148,9 +148,11 @@
 
         <tr id="tr_btn">
             <td colspan="2" align="center">
-                <input type=button value="수정하기" onClick="fn_enable(this.form)">
-                <input type=button value="삭제하기"
-                       onClick="fn_remove_article('${contextPath}/board/removeArticle.do', ${article.articleNO})">
+                <c:if test="${member.id == article.id }">
+                    <input type=button value="수정하기" onClick="fn_enable(this.form)">
+                    <input type=button value="삭제하기"
+                           onClick="fn_remove_article('${contextPath}/board/removeArticle.do', ${article.articleNO})">
+                </c:if>
                 <input type=button value="리스트로 돌아가기" onClick="backToList(this.form)">
                 <input type=button value="답글쓰기"
                        onClick="fn_reply_form('${contextPath}/board/replyForm.do', ${article.articleNO})">
