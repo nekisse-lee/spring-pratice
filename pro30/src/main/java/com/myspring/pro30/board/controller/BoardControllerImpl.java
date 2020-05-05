@@ -2,7 +2,6 @@ package com.myspring.pro30.board.controller;
 
 import com.myspring.pro30.board.service.BoardService;
 import com.myspring.pro30.board.vo.ArticleVO;
-
 import com.myspring.pro30.member.vo.MemberVO;
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
@@ -56,12 +55,22 @@ public class BoardControllerImpl implements BoardController {
     @ResponseBody
     public ResponseEntity addNewArticle(MultipartHttpServletRequest multipartRequest,
                                         HttpServletResponse response) throws Exception {
+        response.setContentType("text/html; charset=utf-8");
         multipartRequest.setCharacterEncoding("utf-8");
         Map<String, Object> articleMap = new HashMap<String, Object>();
         Enumeration enu = multipartRequest.getParameterNames();
         while (enu.hasMoreElements()) {
             String name = (String) enu.nextElement();
+
             String value = multipartRequest.getParameter(name);
+
+            System.out.println("name = " + name);
+            System.out.println("value = " + value);
+
+            name = new String(name.getBytes("8859_1"), "utf-8");
+            value = new String(value.getBytes("8859_1"), "utf-8");
+            System.out.println("name = " + name);
+            System.out.println("value = " + value);
             articleMap.put(name, value);
         }
 
