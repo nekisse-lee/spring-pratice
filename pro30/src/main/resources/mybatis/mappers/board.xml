@@ -42,12 +42,14 @@
 
     <!--단일이미지 추가  -->
 
-    <insert id="insertNewArticle" parameterType="java.util.Map">
-		<![CDATA[
-        INSERT into t_board(articleNO, title, content, imageFileName, id)
-        VALUES (#{articleNO}, #{title}, #{content}, #{imageFileName}, #{id})
-        ]]>
-	</insert>
+    <!--
+        <insert id="insertNewArticle" parameterType="java.util.Map">
+            <![CDATA[
+            INSERT into t_board(articleNO, title, content, imageFileName, id)
+            VALUES (#{articleNO}, #{title}, #{content}, #{imageFileName}, #{id})
+            ]]>
+        </insert>
+    -->
 
     <select id="selectNewArticleNO" resultType="int">
 		<![CDATA[
@@ -87,40 +89,38 @@
   </delete>
 
     <!--다중 이미지 추가 SQL문 -->
-    <!--
-      <insert id="insertNewArticle"  parameterType="java.util.Map">
+    <insert id="insertNewArticle" parameterType="java.util.Map">
       <![CDATA[
         insert into t_board(articleNO, id, title, content, imageFileName)
-        values(#{articleNO}, #{id}, #{title}, #{content}, null)
-      ]]>
+        values (#{articleNO}, #{id}, #{title}, #{content}, null)
+        ]]>
     </insert>
 
 
-     <insert id="insertNewImage"  parameterType="java.util.Map">
-      <foreach item="item"  collection="list"   open="INSERT ALL"
-                    separator=" " close="SELECT * FROM DUAL" >
-        INTO t_imageFile(imageFileNO, imageFileName, articleNO, regDate)
-        VALUES (#{item.imageFileNO}, #{item.imageFileName}, #{item.articleNO}, sysdate)
-      </foreach>
+    <insert id="insertNewImage" parameterType="java.util.Map">
+        <foreach item="item" collection="list" open="INSERT ALL"
+                 separator=" " close="SELECT * FROM DUAL">
+            INTO t_imageFile(imageFileNO, imageFileName, articleNO, regDate)
+            VALUES (#{item.imageFileNO}, #{item.imageFileName}, #{item.articleNO}, sysdate)
+        </foreach>
     </insert>
-   -->
+
+    <select id="selectNewImageFileNO" resultType="int">
+        <![CDATA[
+        SELECT nvl(max(imageFileNO), 0)
+        from t_imageFile
+        ]]>
+      </select>
+
 
     <!--
-        <select id="selectNewImageFileNO" resultType="int">
-        <![CDATA[
-            SELECT nvl(max(imageFileNO), 0)
-            from t_imageFile
-            ]]>
-      </select>
-
-
-        <select id="selectImageFileList" resultMap="imgResult" parameterType="int">
-        <![CDATA[
-            SELECT *
-            from t_imageFile
-            where articleNO = #{articleNO}
-            ]]>
-      </select>
+            <select id="selectImageFileList" resultMap="imgResult" parameterType="int">
+            <![CDATA[
+                SELECT *
+                from t_imageFile
+                where articleNO = #{articleNO}
+                ]]>
+          </select>
     -->
 
 </mapper>
