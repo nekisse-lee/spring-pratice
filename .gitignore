@@ -204,3 +204,9 @@ build
 *.bak
 
 /pro**/src/main/webapp/WEB-INF/config/jdbc/jdbc.properties
+.gitignore
+.mvn/
+mvnw
+mvnw.cmd
+
+
