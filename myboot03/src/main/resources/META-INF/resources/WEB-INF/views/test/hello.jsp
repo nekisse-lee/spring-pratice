@@ -19,7 +19,7 @@
 <h2>${message}</h2>
 <h2>${contextPath}</h2>
 
-<img src="${contextPath}/image/duke3.png" width="200" height="200"/> <br/>
+<img src="${contextPath}/images/duke3.png" width="200" height="200"/> <br/>
 <input type="button" value="테스트" name="테스트" onclick="test()">
 </body>
 </html>

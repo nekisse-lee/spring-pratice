@@ -21,13 +21,13 @@ public class FileDownloadController {
                             HttpServletResponse response) throws Exception {
         OutputStream out = response.getOutputStream();
         String filePath = CURR_IMAGE_REPO_PATH + "/" + imageFileName;
-        File image = new File(filePath);
+        File images = new File(filePath);
         int lastIndex = imageFileName.lastIndexOf(".");
         String fileName = imageFileName.substring(0, lastIndex);
         File thumbnail = new File(CURR_IMAGE_REPO_PATH + "/" + "thumbnail" + "/" + fileName + ".png");
-        if (image.exists()) {
+        if (images.exists()) {
             thumbnail.getParentFile().mkdirs();
-            Thumbnails.of(image).size(50, 50).outputFormat("png").toFile(thumbnail);
+            Thumbnails.of(images).size(50, 50).outputFormat("png").toFile(thumbnail);
         }
 
         FileInputStream in = new FileInputStream(thumbnail);
