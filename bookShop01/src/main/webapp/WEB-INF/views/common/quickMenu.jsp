@@ -98,26 +98,26 @@
             <c:otherwise>
             <form name="frm_sticky">
                 <c:forEach var="item" items="${quickGoodsList }" varStatus="itemNum">
-                <c:choose>
-                <c:when test="${itemNum.count==1 }">
-                <a href="javascript:goodsDetail();">
-                    <img width="75" height="95" id="img_sticky"
-                         src="${contextPath}/thumbnails.do?goods_id=${item.goods_id}&fileName=${item.goods_fileName}">
-                </a>
-                <input type="hidden" name="h_goods_id" value="${item.goods_id}"/>
-                <input type="hidden" name="h_goods_fileName" value="${item.goods_fileName}"/>
-                <br>
-                </c:when>
-                <c:otherwise>
-                <input type="hidden" name="h_goods_id" value="${item.goods_id}"/>
-                <input type="hidden" name="h_goods_fileName" value="${item.goods_fileName}"/>
-                </c:otherwise>
-                </c:choose>
+                    <c:choose>
+                        <c:when test="${itemNum.count==1 }">
+                            <a href="javascript:goodsDetail();">
+                                <img width="75" height="95" id="img_sticky"
+                                     src="${contextPath}/thumbnails.do?goods_id=${item.goods_id}&fileName=${item.goods_fileName}">
+                            </a>
+                            <input type="hidden" name="h_goods_id" value="${item.goods_id}"/>
+                            <input type="hidden" name="h_goods_fileName" value="${item.goods_fileName}"/>
+                            <br>
+                        </c:when>
+                        <c:otherwise>
+                            <input type="hidden" name="h_goods_id" value="${item.goods_id}"/>
+                            <input type="hidden" name="h_goods_fileName" value="${item.goods_fileName}"/>
+                        </c:otherwise>
+                    </c:choose>
                 </c:forEach>
                 </c:otherwise>
                 </c:choose>
+            </form>
         </ul>
-        </form>
     </div>
     <div>
         <c:choose>

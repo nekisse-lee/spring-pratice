@@ -1,8 +1,10 @@
 package com.bookshop01.goods.controller;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -76,8 +78,8 @@ public class GoodsControllerImpl extends BaseController implements GoodsControll
 
     private void addGoodsInQuick(String goods_id, GoodsVO goodsVO, HttpSession session) {
         boolean already_existed = false;
-        List<GoodsVO> quickGoodsList; //최근 본 상품 저장 ArrayList
-        quickGoodsList = (ArrayList<GoodsVO>) session.getAttribute("quickGoodsList");
+        LinkedList<GoodsVO> quickGoodsList; //최근 본 상품 저장 ArrayList
+        quickGoodsList = (LinkedList<GoodsVO>) session.getAttribute("quickGoodsList");
 
         if (quickGoodsList != null) {
             if (quickGoodsList.size() < 4) { //미리본 상품 리스트에 상품개수가 세개 이하인 경우
@@ -89,13 +91,13 @@ public class GoodsControllerImpl extends BaseController implements GoodsControll
                     }
                 }
                 if (already_existed == false) {
-                    quickGoodsList.add(goodsVO);
+                    quickGoodsList.addFirst(goodsVO);
                 }
             }
 
         } else {
-            quickGoodsList = new ArrayList<GoodsVO>();
-            quickGoodsList.add(goodsVO);
+            quickGoodsList = new LinkedList<GoodsVO>();
+            quickGoodsList.addFirst(goodsVO);
 
         }
         session.setAttribute("quickGoodsList", quickGoodsList);

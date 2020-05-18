@@ -106,4 +106,3 @@
     <div id="suggestList"></div>
 </div>
 </body>
-</html>
