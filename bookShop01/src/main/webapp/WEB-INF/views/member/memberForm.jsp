@@ -93,6 +93,37 @@
                 }
             });  //end ajax
         }
+
+        var compare_result = false;
+
+        function fn_compare_pwd() {
+            var pwd1 = $('#member_pw1').val();
+            var pwd2 = $('#member_pw2').val();
+            var s_result = $('#s_result');
+
+            // alert(pwd1);
+            // alert(pwd2);
+
+            if (pwd1 == pwd2) {
+                compare_result = true;
+                $('#s_result').text('비밀번호가 일치합니다.');
+            } else {
+                compare_result = false;
+                $('#s_result').text('비밀번호가 일치하지 않습니다.');
+            }
+
+        }
+
+        function fn_join_member() {
+            if (compare_result == true) {
+                alert("회원 가입을 진행합니다.!")
+            } else {
+                alert("비밀번호가 일치하지 않습니다!");
+                return;
+            }
+
+        }
+
     </script>
 </head>
 <body>
@@ -112,7 +143,15 @@
             </tr>
             <tr class="dot_line">
                 <td class="fixed_join">비밀번호</td>
-                <td><input name="member_pw" type="password" size="20"/></td>
+                <td><input name="member_pw" id="member_pw1" type="password" size="20"/></td>
+            </tr>
+            <tr class="dot_line">
+                <td class="fixed_join">비밀번호 확인</td>
+                <td>
+                    <input name="member_pw2" id="member_pw2" type="password" size="20" onkeyup="fn_compare_pwd()"/>
+                    <span style="font-size: 20px" id="s_result">비밀번호가 일치하지 않습니다.</span>
+                </td>
+
             </tr>
             <tr class="dot_line">
                 <td class="fixed_join">이름</td>
@@ -258,7 +297,8 @@
         <table align=center>
             <tr>
                 <td>
-                    <input type="submit" value="회원 가입">
+                    <%--<input type="submit" value="회원 가입" onclick="fn_join_member()">--%>
+                    <input type="button" value="회원 가입" onclick="fn_join_member()">
                     <input type="reset" value="다시입력">
                 </td>
             </tr>
